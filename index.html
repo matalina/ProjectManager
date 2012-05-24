@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Project Manager</title>
+  
+	<!-- Included CSS Files -->
+	<link rel="stylesheet" href="assets/css/globals.css">
+	<link rel="stylesheet" href="assets/css/typography.css">
+	<link rel="stylesheet" href="assets/css/grid.css">
+	<link rel="stylesheet" href="assets/css/ui.css">
+	<link rel="stylesheet" href="assets/css/forms.css">
+	<link rel="stylesheet" href="assets/css/orbit.css">
+	<link rel="stylesheet" href="assets/css/reveal.css">
+	<link rel="stylesheet" href="assets/css/mobile.css">
+	<link rel="stylesheet" href="assets/css/jquery.datepick.css">
+	<link rel="stylesheet" href="assets/css/app.css">
+
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="assets/css/ie.css">
+	<![endif]-->
+	
+	<script src="assets/js/modernizr.foundation.js"></script>
+
+	<!-- IE Fix for HTML5 Tags -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+
+	<!-- container -->
+	<div class="container">
+
+		<div class="row">
+			<div class="twelve columns">
+				<h2>Project Manager</h2>
+				<p>Because Nothing Else Fit My Needs</p>
+				<hr />
+			</div>
+		</div>
+		
+		<div class="row">
+			<div id="messages" class="ten columns"></div>
+			<div id="clock" class="two columns"></div>
+		</div>
+		
+		
+		<div class="row">
+			<nav class="twelve columns">
+				<dl class="nice tabs contained">
+				  <dd><a href="#project">Projects</a></dd>
+				  <dd><a href="#milestone">Milestones</a></dd>
+				  <dd><a href="#task" class="active">Tasks</a></dd>
+				  <dd><a href="#time">Times</a></dd>
+				</dl>
+				
+				<ul class="nice tabs-content contained">
+				  <li id="projectTab">
+				  	<dl class="sub-nav">
+						  <dt>Projects Commands:</dt>
+						  <dd><a href="#view">View</a></dd>
+						  <dd><a href="#new">New</a></dd>
+						</dl>
+						<div id="projectInfo" class="info">
+							<!-- Project Information -->
+						</div>
+				  </li>
+				  <li id="milestoneTab">
+				  	<dl class="sub-nav">
+						  <dt>Milestone Commands:</dt>
+						  <dd><a href="#view">View</a></dd>
+						  <dd><a href="#new">New</a></dd>
+						</dl>
+						<div id="milestoneInfo" class="info">
+							<!-- Milestone Information -->
+						</div>
+				  </li>
+				  <li id="taskTab" class="active">
+				  	<dl class="sub-nav">
+						  <dt>Task Commands:</dt>
+						  <dd><a href="#view">View</a></dd>
+						  <dd><a href="#new">New</a></dd>
+						</dl>
+						<div id="taskInfo" class="info">
+							<!-- Task Information -->
+						</div>
+				  </li>
+				  <li id="timeTab">
+				  	<dl class="sub-nav">
+						  <dt>Time Commands:</dt>
+						  <dd><a href="#view">View</a></dd>
+						</dl>
+						<div id="timeInfo" class="info">
+							<!-- Time Information -->
+						</div>
+				  </li>
+				</ul>
+			</nav>
+		</div>
+	
+	</div>
+	<!-- container -->
+
+	<!-- Included JS Files -->
+	<script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript">
+		if (typeof jQuery == 'undefined') {
+		    document.write(unescape("%3Cscript src='assets/js/jquery.min.js'%3E%3C/script%3E"));
+		}
+	</script>
+	<script src="assets/js/jquery.reveal.js"></script>
+	<script src="assets/js/jquery.orbit-1.4.0.js"></script>
+	<script src="assets/js/jquery.customforms.js"></script>
+	<script src="assets/js/jquery.placeholder.min.js"></script>
+	<script src="assets/js/jquery.tooltips.js"></script>
+	<script src="assets/js/webstorage.class.js"></script>
+	<script src="assets/js/app.js"></script>
+	
+
+</body>
+</html>
