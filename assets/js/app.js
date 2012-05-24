@@ -43,6 +43,11 @@
   	
   	/* Display Running Clock ------------ */
   	setInterval('updateClock()', 1000);  
+  	
+  	/* Clear Messages ------------ */
+  	$('body').on('click','a',function() {
+  	  $('#messages').html('');
+  	});
   });
 })(jQuery);
 

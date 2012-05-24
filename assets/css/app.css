@@ -15,7 +15,9 @@
 #clock {
   height: 1.5em;
 }
-
+div.date select, div.date input, div.date div{
+  float: left ;
+}
 
 /* -----------------------------------------
    Page Name 1

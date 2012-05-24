@@ -33,7 +33,7 @@ var Project = {
     localStorage.setItem('projects',newProject);
   },
   clearAll : function () {
-    this.projects = {};
+    this.projects = null;
     localStorage.removeItem('projects');
   },
   close : function(projectID) {
@@ -93,7 +93,7 @@ var Milestone = {
     localStorage.setItem('milestones',newMilestone);
   },
   clearAll : function () {
-    this.milestones = {};
+    this.milestones = null;
     localStorage.removeItem('milestones');
   },
   close : function(milestoneID) {
@@ -152,7 +152,7 @@ var Task = {
     localStorage.setItem('tasks',newTask);
   },
   clearAll : function () {
-    this.tasks = {};
+    this.tasks = null;
     localStorage.removeItem('tasks');
   },
   close : function(taskID) {
@@ -238,7 +238,7 @@ var Time = { // time is an array [Date start, Date end, float total, int taskID]
     localStorage.setItem('times',newTime);
   },
   clearAll : function () {
-    this.times = {};
+    this.times = null;
     localStorage.removeItem('times');
   },
   remove : function(timeID) {
@@ -561,8 +561,11 @@ Time.get();
               $('#' + type[1] + 'Info').html('<div class="success alert-box">Project Completed!</div>');
               break;
             case 'delete':
-              Project.remove(projectID);
-              $('#' + type[1] + 'Info').html('<div class="success alert-box">Project Deleted!</div>');
+              var msg = confirm('Are you sure you want to delete this project?');
+              if(msg == true) {
+                Project.remove(projectID);
+                $('#' + type[1] + 'Info').html('<div class="success alert-box">Project Deleted!</div>');
+              }
               break;
             default:
               break;
@@ -594,8 +597,11 @@ Time.get();
               $('#' + type[1] + 'Info').html('<div class="success alert-box">Milestone Completed!</div>');
               break;
             case 'delete':
-              Milestone.remove(milestoneID);
-              $('#' + type[1] + 'Info').html('<div class="success alert-box">Milestone Deleted!</div>');
+              var msg = confirm('Are you sure you want to delete this milestone?');
+              if(msg == true) {
+                Milestone.remove(milestoneID);
+                $('#' + type[1] + 'Info').html('<div class="success alert-box">Milestone Deleted!</div>');
+              }
               break;
             default:
               break;
@@ -622,8 +628,11 @@ Time.get();
               });
               break;
             case 'delete':
-              Task.remove(taskID);
-              $('#' + type[1] + 'Info').html('<div class="success alert-box">Task Deleted!</div>');
+              var msg = confirm('Are you sure you want to delete this task?');
+              if(msg == true) {
+                  Task.remove(taskID);
+                  $('#' + type[1] + 'Info').html('<div class="success alert-box">Task Deleted!</div>');
+                }
               break;
             case 'close':
               Task.close(taskID);
@@ -649,6 +658,24 @@ Time.get();
           break;
       }
     });
+    
+    $('#save_all').on('click',function() {
+      Project.save();
+      Milestone.save();
+      Task.save();
+      Time.save();
+    });
+    $('#clear_all').on('click',function() {
+      var msg = confirm('Are you sure you want to remove all data?');
+      if(msg == true) {
+        Project.clearAll();
+        Milestone.clearAll();
+        Task.clearAll();
+        Time.clearAll();
+        $('#messages').html('<div class="alert-box success">All data has been cleared.</div>');
+      }
+    });
+    
   });
   
   /* Testing ------------ */
