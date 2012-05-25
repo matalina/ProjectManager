@@ -291,12 +291,13 @@ Time.get();
                   $('#' + type[1] + "Info tbody").append('<tr><td>' + projects[projectID][0] + '</td><td>' + (projects[projectID][1] != null?projects[projectID][1]:'') + '</td><td>' + open + '<a href="#delete.' + projectID + '" class="nice tiny round blue button">Delete</a></td></tr>');
                 }
               }
-
               $('#proj_table').dataTable({
-                bPaginate: true,
-                sPaginationType: 'full_numbers',
-                bStateSave: true,
+                "bPaginate": true,
+                'sPaginationType': 'full_numbers',
+                "bStateSave": true,
+                "bDestroy": true,
               });
+              console.log('after call');
               break;
             case 'new':
               $('#' + type[1] + 'Info').load('ajax/' + type[1] + '.html');

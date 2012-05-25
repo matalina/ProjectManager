@@ -6,6 +6,19 @@ Javascript required.  Using HTML5 local storage, no database required.  All info
 
 
 ##Changelog
+###v0.1.3
+
+####Changes
+
+* Added mobile Tabs for main navigation
+
+####To Do List
+
+* Add dataTables to View tables. (not working yet)
+* Determine best action to take when one deletes a Project, Milestone or Task when there are other items below the deleted action.
+* Add count up clock for all unfinished but started times since last visit.
+* Branch to try Bootstrap instead of Foundation
+
 ###v0.1.2
 
 ####Changes
