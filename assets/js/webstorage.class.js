@@ -278,7 +278,7 @@ Time.get();
         case 'project':
           switch(command[1]) {
             case 'view':
-              $('#' + type[1] + "Info").html('<table><thead><tr><th>Project Name</th><th>Deadline</th><th>Actions</th></tr></thead><tbody></tbody></table>');
+              $('#' + type[1] + "Info").html('<table id="proj_table"><thead><tr><th>Project Name</th><th>Deadline</th><th>Actions</th></tr></thead><tbody></tbody></table>');
               var projects = Project.get();
               for(var projectID in projects) {
                 if(projects.hasOwnProperty(projectID)) {
@@ -291,6 +291,12 @@ Time.get();
                   $('#' + type[1] + "Info tbody").append('<tr><td>' + projects[projectID][0] + '</td><td>' + (projects[projectID][1] != null?projects[projectID][1]:'') + '</td><td>' + open + '<a href="#delete.' + projectID + '" class="nice tiny round blue button">Delete</a></td></tr>');
                 }
               }
+
+              $('#proj_table').dataTable({
+                bPaginate: true,
+                sPaginationType: 'full_numbers',
+                bStateSave: true,
+              });
               break;
             case 'new':
               $('#' + type[1] + 'Info').load('ajax/' + type[1] + '.html');
@@ -332,9 +338,9 @@ Time.get();
               var open, tasks = Task.get(),
                 milestones = Milestone.get(),
                 projects = Project.get();
-              for(var taskID in tasks){
+              for(var taskID in tasks) {
                 if(tasks.hasOwnProperty(taskID)) {
-                  var milestoneID = parseInt(tasks[taskID][2]);
+                  var milestoneID = parseInt(tasks[taskID][2]),
                     projectID = parseInt(milestones[milestoneID][2]);
                   if(tasks[taskID][3] == 0) {
                     open = '<span class="open"><a href="#start.' + taskID + '" class="nice tiny round green button">Start</a> <a href="#edit.' + taskID + '" class="nice tiny round blue button">Edit</a>  <a href="#close.' + taskID + '" class="nice tiny round black button">Complete</a> </span>';
@@ -642,6 +648,8 @@ Time.get();
               timeID = Time.start(command[2]);
               $this.attr('href','#stop.' + timeID);
               $this.html('Stop').removeClass('green').addClass('red');
+              $this.before('<span class="time">Elapsed Time: <span id="time' + timeID +'"></span></span> ');
+              setInterval('countUP(' + timeID + ',"#time' + timeID + '")', 1000); 
               break;
             case 'stop':
               var times = Time.get();
@@ -649,6 +657,7 @@ Time.get();
               taskID = times[command[2]][3];
               $this.attr('href','#start.' + taskID);
               $this.html('Start').removeClass('red').addClass('green');
+              $this.siblings('.time').remove();
               break; 
             default:
               break;
@@ -672,18 +681,45 @@ Time.get();
         Milestone.clearAll();
         Task.clearAll();
         Time.clearAll();
-        $('#messages').html('<div class="alert-box success">All data has been cleared.</div>');
+        
+        $('#messages').html('<div class="alert-box success">All data has been cleared.  Your page will refresh in 5 seconds.</div>');
+        setTimeout('location.reload(true)', 5000);
       }
     });
     
   });
   
+  /* Get all Outstanding Times ------------ */
+  var times = Time.get(),
+    tasks = Task.get();
+ 
+  for(timeID in times) {
+    if(times[timeID][1] == null) {
+      if(times.hasOwnProperty(timeID)) {
+        var taskID = times[timeID][3];
+        $('#messages').append('<div class="alert-box">' + tasks[taskID][0] + ' is still running.  <a href="#stop.' + timeID + '" class="nice tiny round red button">Stop</a></div>');
+      }
+    }
+  }
+  
+  $('#messages').on('click','a',function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    var command = parse(/^#(.+)\.([0-9]+)$/,$this.attr('href')),
+      $form = $this.parents('form');
+    if(command[1] == 'stop') {
+      Time.stop(command[2]);
+      $this.parent().remove();
+    }
+  });
+ 
+ 
   /* Testing ------------ */
-  /*console.log(Project.get());
+  console.log(Project.get());
   console.log(Milestone.get());
   console.log(Task.get());
   console.log(Time.get());
-  Project.clearAll();
+  /*Project.clearAll();
   Milestone.clearAll();
   Task.clearAll();
   Time.clearAll();*/
@@ -694,3 +730,21 @@ function parse(pattern, subject) {
   return pattern.exec(subject);
 }
 
+function countUP(timeID, selector) {
+  var times = Time.get(),
+    t1 = new Date(times[timeID][0]),
+    t2 = new Date();
+    
+  var difference = t2.getTime() - t1.getTime();
+ 
+  var hrs = Math.floor(difference/1000/60/60);
+  difference -= hrs*1000*60*60
+ 
+  var mins = Math.floor(difference/1000/60);
+  difference -= mins*1000*60
+  
+  var secs = Math.floor(difference/1000);
+    
+  $(selector).html(hrs + ' hrs ' + mins + ' mins ' + secs + ' secs');
+}
+//setInterval('countUP(3,"#messages")',1000);

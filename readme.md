@@ -6,6 +6,23 @@ Javascript required.  Using HTML5 local storage, no database required.  All info
 
 
 ##Changelog
+###v0.1.2
+
+####Changes
+
+* Show all unfinished but time started tasks since last visit.
+* Added refresh page to Clear All
+* Added count up clock for Started Tasks
+
+####Bug Fixes
+
+* Fixed Readme 
+
+####To Do List
+
+* Add dataTables to View tables. (not working yet)
+* Determine best action to take when one deletes a Project, Milestone or Task when there are other items below the deleted action.
+* Add count up clock for all unfinished but started times since last visit.
 
 ###v0.1.1 
 
@@ -24,8 +41,6 @@ Javascript required.  Using HTML5 local storage, no database required.  All info
 
 * Show all unfinished but time started tasks since last visit.
 * Add dataTables to View tables.
-* Add Clear All button to Clean the local storage completely
-* Add Save All button to Store infom to local storage.  It should save for each operation, so not needed but just in case.
 * Determine best action to take when one deletes a Project, Milestone or Task when there are other items below the deleted action.
 * Add count up clock for Started Tasks
 
