@@ -131,8 +131,8 @@
 		var projects = Project.get();
 		for(var projectID in projects){
     	if(projects.hasOwnProperty(projectID)) {
-   			$('#project option').clone().val(projectID).text(projects[projectID][0]).appendTo('select[name=projectID]');
-   			$('#projectUL li').clone().html(projects[projectID][0]).appendTo('#projectUL');
+   			$('#project option:nth-child(1)').clone().val(projectID).text(projects[projectID][0]).appendTo('select[name=projectID]');
+   			$('#projectUL li:nth-child(1)').clone().html(projects[projectID][0]).appendTo('#projectUL');
     	}
     }
 	});

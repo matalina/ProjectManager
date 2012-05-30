@@ -10,7 +10,7 @@
 		  <a href="#" class="selector"></a>
 		  <ul id="milestoneUL">
 		  	<li>Milestone</li>
-		  </ul>
+		  </ul> 
 		 </div>
 	</label>
 	<label>Deadline: </label>
@@ -131,8 +131,8 @@
 		var milestones = Milestone.get();
 		for(var milestoneID in milestones){
     	if(milestones.hasOwnProperty(milestoneID)) {
-   			$('#milestone option').clone().val(milestoneID).text(milestones[milestoneID][0]).appendTo('select[name=milestoneID]');
-   			$('#milestoneUL li').clone().html(milestones[milestoneID][0]).appendTo('#milestoneUL');
+   			$('#milestone option:nth-child(1)').clone().val(milestoneID).text(milestones[milestoneID][0]).appendTo('select[name=milestoneID]');
+   			$('#milestoneUL li:nth-child(1)').clone().html(milestones[milestoneID][0]).appendTo('#milestoneUL');
     	}
     }
 	});

@@ -14,6 +14,7 @@ Javascript required.  Using HTML5 local storage, no database required.  All info
 
 ####To Do List
 
+* Fix Drop Down issues with multiple projects, milestones
 * Add dataTables to View tables. (not working yet)
 * Determine best action to take when one deletes a Project, Milestone or Task when there are other items below the deleted action.
 * Add count up clock for all unfinished but started times since last visit.
