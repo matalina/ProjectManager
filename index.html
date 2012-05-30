@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Project Manager by matalina</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Project Manager</h1>
+        <p>A Simple Local Project Manager</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/matalina/ProjectManager" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/matalina/ProjectManager/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/matalina/ProjectManager/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>Simple Project Manager</h1>
+
+<p>A simple task, milestone, project manager with time keeping.</p>
+
+<p>Demo: [<a href="http://aliciawilkerson.com/projman">http://aliciawilkerson.com/projman</a>]</p>
+
+<p>Javascript required.  Using HTML5 local storage, no database required.  All information is stored on your PC.</p>
+
+<h2>Changelog</h2>
+
+<h3>v0.1.4</h3>
+
+<h4>Changes</h4>
+
+<ul>
+<li>Added Demo link (and tracking code to Demo)</li>
+</ul><h4>Bug Fixes</h4>
+
+<ul>
+<li>Fixed Drop Down issues with multiple projects, milestones</li>
+<li>Fixed IDs of new Items </li>
+<li>Delete all Times under Tasks</li>
+<li>Delete all Task and Times under Milestones</li>
+<li>Delete all Milestons, Task and Times under Projects</li>
+</ul><h4>To Do List</h4>
+
+<ul>
+<li>Add dataTables to View tables. (not working yet)</li>
+<li>Add count up clock for all unfinished but started times since last visit.</li>
+<li>Add Total Task Time Count in Time Tab</li>
+<li>Add Total Milestone Time Count in Time Tab</li>
+<li>Add Total Project Time Count in Time Tab</li>
+<li>Add Export Data</li>
+<li>Add Import Data</li>
+<li>Branch to try Bootstrap instead of Foundation</li>
+</ul><h3>v0.1.3</h3>
+
+<h4>Changes</h4>
+
+<ul>
+<li>Added mobile Tabs for main navigation</li>
+</ul><h4>To Do List</h4>
+
+<ul>
+<li>Add dataTables to View tables. (not working yet)</li>
+<li>Determine best action to take when one deletes a Project, Milestone or Task when there are other items below the deleted action.</li>
+<li>Add count up clock for all unfinished but started times since last visit.</li>
+<li>Branch to try Bootstrap instead of Foundation</li>
+</ul><h3>v0.1.2</h3>
+
+<h4>Changes</h4>
+
+<ul>
+<li>Show all unfinished but time started tasks since last visit.</li>
+<li>Added refresh page to Clear All</li>
+<li>Added count up clock for Started Tasks</li>
+</ul><h4>Bug Fixes</h4>
+
+<ul>
+<li>Fixed Readme </li>
+</ul><h4>To Do List</h4>
+
+<ul>
+<li>Add dataTables to View tables. (not working yet)</li>
+<li>Determine best action to take when one deletes a Project, Milestone or Task when there are other items below the deleted action.</li>
+<li>Add count up clock for all unfinished but started times since last visit.</li>
+</ul><h3>v0.1.1</h3>
+
+<h4>Changes</h4>
+
+<ul>
+<li>Styled Dropdowns, and aligned Deadline inputs</li>
+<li>Added Clear All button to Clean the local storage completely</li>
+<li>Added Save All button to Store infom to local storage.  It should save for each operation, so not needed but just in case.</li>
+<li>Added Confirm to Delete function</li>
+</ul><h4>Bug Fixes</h4>
+
+<ul>
+<li>Fixed Clear All bug</li>
+</ul><h4>To Do List</h4>
+
+<ul>
+<li>Show all unfinished but time started tasks since last visit.</li>
+<li>Add dataTables to View tables.</li>
+<li>Determine best action to take when one deletes a Project, Milestone or Task when there are other items below the deleted action.</li>
+<li>Add count up clock for Started Tasks</li>
+</ul><h3>v0.1.0 Initial Release</h3>
+
+<h4>To Do List</h4>
+
+<ul>
+<li>Show all unfinished but time started tasks since last visit.</li>
+<li>Add dataTables to View tables.</li>
+<li>Add Clear All button to Clean the local storage completely</li>
+<li>Add Save All button to Store infom to local storage.  It should save for each operation, so not needed but just in case.</li>
+<li>Determine best action to take when one deletes a Project, Milestone or Task when there are other items below the deleted action.</li>
+<li>Fix Styling of forms.</li>
+<li>Add count up clock for Started Tasks</li>
+</ul><hr><p>Using Zurb/Foundation Framework, jQuery, HTML5 local storage</p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/matalina">matalina</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-32258907-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
