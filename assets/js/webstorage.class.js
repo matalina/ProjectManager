@@ -21,7 +21,12 @@ var Project = {
       count;
     project[2] = 0;  
     if(this.projects != null) {
-      count = this.projects.length() + 1;
+      for(var projectID in this.projects) {
+        if(this.projects.hasOwnProperty(projectID)) {
+          count = parseInt(projectID) + 1;
+        }
+      }
+      console.log(count);
       this.projects[count] = project;
     }
     else {
@@ -46,9 +51,18 @@ var Project = {
     localStorage.setItem('projects',newProject);
   },
   remove : function(projectID) {
-    var newProject;
+    var newProject,
+      milestones = Milestone.get();
     
     delete this.projects[projectID];
+    
+    for(var milestoneID in milestones) {
+      if(milestones.hasOwnProperty(milestoneID)) {
+        if(milestones[milestoneID][3] == projectID) {
+          Milestone.remove(milestoneID);
+        }
+      }
+    }
     
     newProject = JSON.stringify(this.projects);
     
@@ -81,7 +95,11 @@ var Milestone = {
       count;
     milestone[3] = 0;  
     if(this.milestones != null) {
-      count = this.milestones.length() + 1;
+      for(var milestoneID in this.milestones) {
+        if(this.milestones.hasOwnProperty(milestoneID)) {
+          count = parseInt(milestoneID) + 1;
+        }
+      }
       this.milestones[count] = milestone;
     }
     else {
@@ -106,9 +124,18 @@ var Milestone = {
     localStorage.setItem('milestones',newMilestone);
   },
   remove : function(milestoneID) {
-    var newMilestone;
+    var newMilestone,
+      tasks = Task.get();
     
     delete this.milestones[milestoneID];
+    
+    for(var taskID in tasks) {
+      if(tasks.hasOwnProperty(taskID)) {
+        if(tasks[taskID][3] == milestoneID) {
+          Task.remove(taskID);
+        }
+      }
+    }
     
     newMilestone = JSON.stringify(this.milestones);
     
@@ -140,7 +167,11 @@ var Task = {
       count;
     task[3] = 0;
     if(this.tasks != null) {
-      count = this.tasks.length() + 1;
+      for(var taskID in this.tasks) {
+        if(this.tasks.hasOwnProperty(taskID)) {
+          count = parseInt(taskID) + 1;
+        }
+      };
       this.tasks[count] = task;
     }
     else {
@@ -165,9 +196,18 @@ var Task = {
     localStorage.setItem('tasks',newTask);
   },
   remove : function(taskID) {
-    var newTask;
+    var newTask,
+      times = Time.get();
     
     delete this.tasks[taskID];
+    
+    for(var timeID in times) {
+      if(times.hasOwnProperty(timeID)) {
+        if(times[timeID][3] == taskID) {
+          Time.remove(timeID);
+        }
+      }
+    }
     
     newTask = JSON.stringify(this.tasks);
     
@@ -200,7 +240,11 @@ var Time = { // time is an array [Date start, Date end, float total, int taskID]
     time = [new Date(), null, null, taskID];
       
     if(this.times != null) {
-      count = this.times.length() + 1;
+      for(var timeID in this.times) {
+        if(this.times.hasOwnProperty(timeID)) {
+          count = parseInt(timeID) + 1;
+        }
+      }
     }
     else {
       count = 1;

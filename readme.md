@@ -16,12 +16,20 @@ Javascript required.  Using HTML5 local storage, no database required.  All info
 ####Bug Fixes
 
 * Fixed Drop Down issues with multiple projects, milestones
+* Fixed IDs of new Items 
+* Delete all Times under Tasks
+* Delete all Task and Times under Milestones
+* Delete all Milestons, Task and Times under Projects
 
 ####To Do List
 
 * Add dataTables to View tables. (not working yet)
-* Determine best action to take when one deletes a Project, Milestone or Task when there are other items below the deleted action.
 * Add count up clock for all unfinished but started times since last visit.
+* Add Total Task Time Count in Time Tab
+* Add Total Milestone Time Count in Time Tab
+* Add Total Project Time Count in Time Tab
+* Add Export Data
+* Add Import Data
 * Branch to try Bootstrap instead of Foundation
 
 ###v0.1.3
